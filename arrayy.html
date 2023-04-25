@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>HTML 5 Boilerplate</title>
+    <script>
+
+//string method
+//1.length             ==give length of string
+//2.toLowerCase()     ==convert into small 
+//3.toUowerCase()     ==convert into capital 
+//4.includes("GREAT") ==GREAT find than return true otherwise if great than return false.it is case sensitive
+//5.startsWith("java") == if string start with java than return true otherwise false
+//6.endsWith("java") == if string end with java than return true otherwise false
+//7.search("is")==      it return index(position),,same like includes if vlaue is not found than return -1 number
+//8.match(/is/g)==       it returns in array form,,it use regular expression,g=globally,,if is coming 2 times than it retun 2 times is.
+//9.indexOf("is")==         it return also index(positon) of is. 
+//10.lastIndexOf()==    it return also index(positon) from last is. 
+//11.replace("java","python") ==         it is used to replace the word of java and instead of add the word python.
+//12.trim() ==          space ko remove karta left ya write se 
+let str="hi javascript"
+let newstr=str.length;
+document.write(newstr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//number method
+//1.Number()
+var a1="10";          //string
+var newa1=Number(a1);
+document.write(newa1+10);
+
+
+//2.parseInt()===return value without decimal   
+//3.parseFloat()=return value with decimal number
+var a2="20.23";          //string
+var newa2=parseInt(a2);
+document.write(newa2+10);
+
+//4.isFinite()==give in true false if value is finite
+//5.isInteger()=give in true false if value is integer
+var a3=Infinity;          
+var newa3=Number.isFinite(a3);
+document.write(newa3);
+
+
+//6) toFixed()==decimal value k bad 2(any)value ko fix kar dega
+//7) toPrecision()==decimal value k bad 2(any)value(round up) ko dega
+var a4=12.3435;          
+var newa4=a4.toFixed(3);
+document.write(newa4);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//array
+	var ary=[10,"san",true,null];
+	
+	document.write("<ul>");
+	for(var a=0;a<ary.length;a++)
+         {
+	document.write("<li>"+ary[a]+"</li>");
+	}
+	document.write("</ul>");
+
+
+
+	//sum of array
+	var sum=0;
+	var ar=[12,23,2,32,3];
+	for(var i=0;i<5;i++){
+	sum=sum+ar[i];
+	}
+	document.write("total sum:"+sum+"<br>");
+
+
+	//new method of array
+	var b=new Array();
+	b[0]=1;
+	b[1]=null;
+	b[3]="ram";
+	for(var j=0;j<b.length;j++){
+	document.write(b[j]+"<br>");
+	}
+        
+        
+	
+	
+	//take value from user using array
+	var c=new Array(2);
+	for(var g=0;g<3;g++){
+	//c[g]=prompt("enter value:");
+	}
+	document.write("<ol>");
+	for(var h=0;h<3;h++){
+	document.write("<li>"+c[h]+"</li>");
+	}
+	document.write("</ol>");
+
+	
+	
+	//multi dimensional array
+	var arrr=[
+	["harray",2,4,null],
+	["harra",2,4,null],
+	["harr",2,4,null],
+	["har",2,4,null]
+	];
+	document.write(arrr[2][0]+"<br>")
+
+	document.write("<table border='2px' cellspacing='0'>");
+	
+	for(var m=0;m<arrr.length;m++){
+	document.write("<tr>");
+	
+	for(var n=0;n<arrr[m].length;n++){
+	document.write("<td>"+arrr[m][n]+"</td>");
+	}
+	document.write("</tr>");
+	}
+	document.write("</table>");
+	
+
+	//modify and delete value of array
+	var yu=["gis",23,1,null,"no"];
+	document.write(yu +"<br>");
+
+	yu[1]=3;
+	document.write(yu +"<br>");
+	
+	delete yu[1];
+	document.write(yu +"<br>");
+
+	document.write(yu[1] +"<br>");
+
+	
+	
+	//sort,reverse,pop,push,shift,unshift
+	var o=["yush","piyush","mayur","aran"];
+	document.write(o+"<br>");
+	o.sort();
+	document.write(o+"<br>");
+	o.reverse();
+	document.write(o+"<br>");
+	o.pop();                            //pop()=delete the value from last
+	document.write(o+"<br>");
+	o.push("han","man");                           //push()=add the value from last
+	document.write(o+"<br>");
+	document.write(o+"<br>");
+	o.shift();                            //shift()=delete the value from first
+	document.write(o+"<br>");
+	o.unshift("rahul");                           //unshift()ss=add the value from first
+	document.write(o+"<br>");
+	
+	
+	
+
+</script>
+  </head>
+  <body>
+	
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!Doctype>
+<html>
+<head>
+</head>
+<body>
+
+
+<script>
+//higher order function=it is function,it return a function,and accept function as parameter
+const interviewquestion=(name)=>{
+	if(name=="yash"){
+		return function(topic){
+			console.log(`${name} is ${topic}`)
+		}
+	}
+		if(name=="thapa"){
+		return function(topic){
+			console.log(`${name} is ${topic}`)
+		}
+	}
+		if(name=="rohit"){
+		return function(topic){
+			console.log(`${name} is ${topic}`)
+		}
+	}
+	else{
+		return function(){
+			console.log("no match");
+		}
+	}
+}
+interviewquestion("yash")("pandey")
+interviewquestion("thapa")("papa")
+interviewquestion("mohit")("not rohit")
+
+
+
+
+
+
+//Recursion==function call itself again and again
+function data(x){
+	console.warn(x);
+	if(x<10){
+	data(x+1);
+	}	
+}
+let d=0
+data(d);
+
+
+
+
+//rest operator(...res)==rest m values h uska alag se argument bnake pass karna chate h,,, or array na sakte h ,,use with function argument
+//arguments function--object m convert karega,,take function arguments
+//rest==use when declare the function
+
+
+
+function sum(){
+	console.log(arguments);
+	
+	let summ=0;
+	for(let i in arguments){
+	summ = summ+arguments[i]
+	}
+	document.write(summ+"<br>")
+	}
+	
+sum("harry",20,30,40);                   //convert 20,30,40 into string
+
+
+
+
+function newsum(name,...res){
+	
+	
+	let su=0;
+	for(let j in res){  
+	su = su + res[j];
+	}
+	document.write(name,su+"<br>");
+	}
+	
+newsum("harry",20,30,40);                   
+
+
+//spread opertor(...spr)==use with function calling,,array ki value ko spread karke mutliple value m convert
+function newnewsum(name,...res){
+	
+	
+	let s=0;
+	for(let k in res){
+	s = s + res[k];
+	}
+	document.write(name,s+"<br>");
+	}
+let arr=[20,30,40]
+newsum("harry",...arr);  
+
+
+
+
+//closure=function k bhar k area k variable ko bhi access karega(outer lexical scope).inner functon that has access to the outer function variable
+
+	var sub=function(f){
+	console.log("view"+ f)
+	c=4;
+	return function(b){
+	return f+b+c;                    //function access c,a variable that is outside the function
+
+	}	
+	
+	}
+let allsub=sub(200);
+document.write(allsub(5))
+
+
+//name property=function name is accessibl with name property
+function sayhi(){
+document.write("hi");
+}
+document.write(sayhi.name)         //calling a function name
+
+
+
+
+
+//call(),apply(),bind()==function borrow,,when we attached object with function,use....taki function ko resue feature ko use
+//call()==normal function ko object k sath use kar sakte h using call
+
+
+var student={
+	first:"raju",
+	last:"singh"	,
+}
+var teacher={
+	first:"jaggu",
+	last:"bheem",	
+}
+function callobj(){
+	return("<br>" + this.first  +   this.last);
+	}
+
+document.write(callobj.call(student));
+document.write(callobj.call(teacher));
+
+
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<!Doctype>
+<html>
+<head>
+</head>
+<body>
+
+
+<script>
+
+
+	//set and get
+	let object={
+	firstname:"ritik",
+	lastname:"verma",
+	//fullname:function(){
+	//return this.firstname + this.lastname;
+	//}
+
+	get getfullname(){
+	return this.firstname + this.lastname;
+	},
+	set setfullname(par){
+		this.firstname=par.fa,
+		this.lastname=par.la;
+	}
+	};
+	//document.write(object.getfullname)
+	object.setfullname={fa:"yahoo",la:"baba"};
+	document.write(object.getfullname)
+	
+
+
+
+	//resue the code,,,big code ko small code m convert.,,well organized code,,ES6 version m aaya tha
+	
+	class student{
+	constructor(name,surname){
+	this.studentname=name,this.studentsurname=surname;
+	console.log("hello constructor");
+	}
+	
+	
+	hello(){
+	console.log(`hello ${this.studentname} ${this.studentsurname} `);
+	}
+	
+	//static==not need to make object==call with class name
+	static staticmethod(){
+	console.log("static method");
+	}
+	
+	}
+
+
+let a=new student("sir","ji");
+let b=new student("sharma","jiji");
+a.hello();
+b.hello();
+//x.staticmethod(); //error
+student.staticmethod();
+
+
+	//inheritance(use extends keyword)==derive(child) class inherite all the properties and behaviour of the parent class
+//parent class
+	class employee{
+	constructor(name){
+	this.empname=name;
+
+	console.log("hi construtor 1");
+	}
+	yaho(){
+	console.log("hi yahooo"+ this.empname);
+	}  
+
+	}
+
+//derive class
+	class manager extends employee{
+	//constructor(){
+	//super();
+	//console.log("hi construtor 2"); 
+	//}
+
+	yaho(){
+	super.yaho();
+	console.log("hi mann"+ this.empname);
+
+
+	}
+	}
+let x=new manager("hammm");
+x.yaho();
+
+
+
+//multilevel intheritance
+	class one{
+	constructor(name,age,salary){
+	this.aname=name;
+	this.aage=age;
+	this.asalary=salary;
+	}
+	
+ 	methodone(){
+	
+
+	document.write(`${this.aname} ${this.aage} ${this.asalary}`)
+	}
+	
+	}
+	class two extends one{
+	methodone(){
+	let ta=100;
+	let pa=200;
+	this.totalsalary=ta+pa+this.asalary;
+
+	document.write(`${this.aname} ${this.aage} ${this.totalsalary}`);
+	}
+	
+	
+	}
+	class three extends two{
+	
+	
+	}
+let y=new three("harsh",20,20000);
+y.methodone();
+	
+	
+	
+	
+	//private(use #) and protected(use _) properties and method 
+	
+	class bottle{
+	_water=0
+	setmethod(value){
+		this._water=value
+
+	}
+	getmethod(){
+		console.log(this._water);
+	}
+	}
+let r=new bottle();
+r.setmethod(10)
+r.getmethod()
+console.log(r._water); //access outside
+
+
+	
+
+	
+
+</script>
+
+	</body>
+</html>

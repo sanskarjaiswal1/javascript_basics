@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+  <script>
+//for in loop=use with object only
+var obj={
+firstName:"ram",
+lastName:"sham",
+age:10
+};
+for(var key in obj){
+document.write(obj[key]+"<br>")
+document.write(key+":"+obj[key]+"<br>");
+}
+
+
+
+//for of loop=array,string ko iterate(access) karne k liye banaya tha,,length is not needed
+let a="helloworld"
+for(var i of a){
+
+document.write(i+"<br>");
+}
+let score=[34,45,56,67]
+for(var ii of score){
+document.write(ii+"<br>");
+}
+
+
+//for loop=initialization,condition,increment and decremeent
+for(var v=0;v<=2;v++){
+document.write("hello world");
+}
+
+//while loop
+let s=10;
+document.write("<ul>");
+while(s>=1){
+document.write("<li>"+ s + ") hello world"+ "</li>");
+s=s-1;
+}
+document.write("</ul>");
+
+
+//do while=first statement execute then after condition check
+let x=1;
+do{
+document.write(x+") hello"+"<br>");
+x=x+1;
+
+}while(x<=10)
+
+//for each loop using with array method=print value sequence wise
+var op=["nan","man","sun","lan"];
+op.forEach(lo);
+
+function lo(value,index){
+document.write(index + ":" + value +"<br>");
+}
+
+
+</script>
+</body>
+</html>

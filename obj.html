@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  </head>
+  <body>
+	<script>
+		
+
+	//object literals==ES6 VERSION new feature
+	let namee="suyash";
+	let son={
+		namee,     //name:name;
+	}
+	console.log(son.namee);
+
+	let raw="five";
+	let parent={
+		[raw+"plus"]:"one",           //raw add value of five 
+		'direct show'(){
+		return `${this.fiveplus}`
+		}
+	}
+	console.log(parent)
+	console.log(`${parent.fiveplus}`)
+	console.log(parent['direct show']())
+	
+	
+	
+	
+	
+	
+	//object reference
+	let a={
+	name:"som",
+	age:12
+	}
+	let b=a         //pass by reference=memory block same for both 
+	b.name="jam"                   //value change for both,work with object
+	document.write(a.name+"<br>");
+	document.write(b.name+"<br>");
+
+
+	
+	
+	let c=8;		//pass by value
+	let d=c;         //both work independently
+	d=d+2;
+	document.write(c+"<br>");
+	document.write(d+"<br>");
+
+	
+	//shallow copy=1 variable se dusra variable banae to unke changes ek dusre ko affact na kre
+	//(call by reference)if we assign value into another value(b=a) ,if we change the value of another value(b,b.name="yash") than value is copy in both the variable,so it is not proper way to copy value
+	//using (object constructor method)object.assign(target object,source object) it will not change the value of another variable
+
+
+	let l={name:"yash",age:19}
+	let m=l;                                   //l valye copy in m value
+	m.name="mohit";                               
+	console.log(m);
+	console.log(l);
+	
+	let n=Object.assign({sal:1900},l);
+	console.log(m);               //l will be same
+	m.name="rohit"                        //only m change
+	console.log(l);
+	console.log(m);
+	console.log(n);
+	
+
+	
+
+	//deep copy=nested object m same reference rahega(value will be copying in nested object using shallow copy) 
+	let x={name:"yash",age:19,city:{cityname:"indore"}}
+	let y=x;                                   //l valye copy in m value
+	y.name="mohit";                               
+	console.log(x);
+	console.log(y);
+
+	let z=Object.assign({sal:1900},l);
+	console.log(z);               //l will be same
+	y.city.cityname="Bhopal"
+	console.log(y.city.cityname);                        //only m change
+	console.log(x.city.cityname);
+	
+	let z1=JSON.stringify(x);                  //convert into string
+	z1=JSON.parse(z1);                            //create new object of z1 = now not copy reference
+	
+	z1.city.cityname="dewas";
+	console.log(z1.city.cityname);
+	console.log(x.city.cityname);
+
+
+	//this keyword==this keyword refers to owner object,, global object(windows),,this refers to the object it belongs to
+	let info={
+	name:"harsh",age:19,
+	sum:function(){
+	let add=2+2;
+	console.log(add);
+	console.log(this.name)
+	console.log(this);
+	}
+	}
+	info.sum();
+	
+
+
+	//construtor operator new
+	let nel=new Object()
+	nel.name="nayan"
+	nel.age=20
+	console.log(nel)
+
+
+	//optional chaining ==?,,,read the properties of any object without knowing ki uski value null h ya undefined h
+	let obj={
+	name:"har",
+	agee:19,
+	city:"jaipur",
+	mounth:{
+	street:"uhi",
+	food:"poha"
+	}
+	}
+	console.log(obj.mounth.street.gali?.jai);
+
+
+	//symbol type==unique value take,,only console print,if print in screen use toString() method ,and Desription.
+	let sym=Symbol("hello");
+	console.log(sym);
+	//document.write(sym);             //error in document
+	document.write(sym.toString());
+	document.write(sym.description);
+
+	//symbol type using with object
+	let age=Symbol("age");
+
+	let user={
+	class:"tenth",
+	school:"bns",
+	//[age]:25,                 //age use inside symbol
+	}
+	user[age]=27
+	console.log(user);
+	console.log(user.age);     //error,undefined
+	console.log(user[age]);    //27
+
+	//symbol value not use with for in loop
+	for(let key in user){
+	console.log(key)                  //skip the value of symbol(age)
+	}
+	
+
+	// arrray destructuring==1 line m multiple variable ko value assign karna,introduce in new ES6 version
+	let arr=["sam",,"ram"];
+	//let sa=arr[0];
+	//let na=arr[1];
+	//let ra=arr[2];
+	let [sa,na=20,ra]=arr;
+	
+	console.log(sa,na,ra)
+
+	//...args==rest operator--it return all rest values --return in array form
+	let row=["tea",20,"coffee"];
+
+	let [name,...args]=row;
+	console.log(name);
+	console.log(args)
+	
+	//as function
+	function userr([name,age,city]){
+	console.log(name);
+	console.log(age);
+	console.log(city);
+	}
+	userr(["yaho",23,"indore"])
+	
+
+
+	//object destructoring ==1 object==multiple properties ari h,usme se (limited) value ko hi assign karte h
+	let telem={
+	nal:"dom",age:12,school:"vaishnav",
+	};
+
+	//alais name=short name
+	
+	let {nal:nn,school:mm}=telem;
+	console.log(nn);
+	console.log(mm);
+
+
+
+	//iterator==traversing control in user hand ,for loop m value ko ek sath print karna padta h
+	//let number=[10,15,20];
+	//let iter=number[Symbol.iterator]();
+	let string="hello world";
+	let iter=string[Symbol.iterator]();
+	
+	
+	let result=iter.next();
+	while(!result.done){
+	console.log(result.value);
+	result=iter.next();
+	}
+
+
+
+
+	iter.next();
+	console.log("hello");
+	console.log(iter.next().value);
+	console.log(iter.next().done);
+	console.log(iter.next());
+	
+
+	//map ==existing array not change,after calculation in array or object ,,it will create a new array==use in key value pairs
+	let mymap=new Map([["a1","ayush"],["p2","piyush"]]);
+	
+	mymap.set("p2","hello");
+	console.log(mymap);
+	
+	console.log(mymap.get("p2"));
+		
+	for(let [key,value] of mymap){
+	console.log(`${key},${value}`)
+	}
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	let tut=[100,300,500]
+	function test(x){
+	return x+20;
+	}
+	let f=tut.map(test);
+	document.write("<br>");
+	document.write(f);
+
+
+
+	
+
+
+
+	
+
+	//set==collection of unique values===array print all values
+	let newset=new Set([1,2,3,4,1,2,3]);
+	console.log(newset);
+	
+	newset.add("heeloo");
+	newset.add({name:"rahul"});
+	console.log(newset.has(1))            //value present return true ,,not false
+
+
+	
+
+	//array to set convertor
+	let ar=[10,10,"new"]
+	let newar=new Set(ar);
+	console.log(newar)
+
+	//set to array convertor
+	let se=new Set([10,10,20,20,23,24,25]);
+	let newse=[...se];                      
+	console.log(newse);
+
+	//weakset=stores only object,can not be iterated,,unique value
+	let ws=new WeakSet();
+	var ob1={"lion":"tiger"}
+	ws.add(ob1)
+	console.log(ws)
+	console.log(ob1.lion)
+	console.log(ws.has(ob1))
+		
+	
+	//weakmap=stores only object,can not be iterated
+	let wm=new WeakMap();
+	var o1={"lion":"tiger"}
+	var o2={}
+	wm.set(o1,"private")
+	wm.set(o2,"public")
+	console.log(wm)
+	console.log(o1.lion)
+	console.log(ws.has(o1))	
+
+
+
+	//JSON=javascript object notation==used to store and excahange and format data from client to server.fast than XML(JSON.stringify,JSON.parse)
+	//API=aplication programing interface=website or database(mysql),k bich m request or respond ka kam karta h(API store JSON format)
+
+	let myjson={
+	"name":"harry",
+	"age":12,
+	"country":"india",
+	};
+	console.log(myjson);
+
+	//nested object ko string m convert karna,than parse karna so it is complicated ,than network m transport karna ,tough
+	let myjsonStr=JSON.stringify(myjson);           //JSON.stringinfy convert into string
+	console.log(myjsonStr);
+
+	myjsonStr=myjsonStr.replace('harry','larry');
+
+	let newmyjson=JSON.parse(myjsonStr);
+	console.log(newmyjson);
+
+
+	//data and time
+	let dt=new Date();
+	console.log(dt);
+
+	let dat=new Date(1000);                   //1000-miliseconds,=,1 second
+	console.log(dat);
+	
+	let datt=new Date("2028-09-20");              
+	console.log(datt);
+
+	//let newdatt=new Date(year,month,date,hour,minute,second,millisecond)
+	let newDate=new Date(2028,10,20,12,03,100);              
+	console.log(newDate);       
+		
+	let ye=newDate.getFullYear();              
+	console.log(ye);     
+	let month=newDate.getMonth();              
+	console.log(month);   
+	let hr=newDate.getHours();              
+	console.log(hr);    
+	let dd=newDate.getDate();              
+	console.log(dd);     
+
+	newDate.setDate(15);
+	console.log(newDate);
+	
+	newDate.setMinutes(15);
+	console.log(newDate);
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	</script>
+  </body>
+</html>
